@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Gourmet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <h1>Restaurant Gourmet</h1>
+            <nav>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+                <a href="#avis">Avis</a>
+                <a href="#paiement">Paiement</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Menu -->
+    <section id="menu">
+        <div class="container">
+            <h2>Notre Menu</h2>
+            <div class="menu-items">
+                <div class="item">
+                    <h3>Entrée</h3>
+                    <p>Salade fraîcheur - 5€</p>
+                </div>
+                <div class="item">
+                    <h3>Plat principal</h3>
+                    <p>Poulet rôti aux herbes - 15€</p>
+                </div>
+                <div class="item">
+                    <h3>Dessert</h3>
+                    <p>Tarte aux pommes - 7€</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>Téléphone : +261 32 00 000 00</p>
+            <p>Email : contact@restaurantgourmet.com</p>
+            <p>Adresse : Avenue de la Gastronomie, Antananarivo</p>
+        </div>
+    </section>
+
+    <!-- Section Avis -->
+    <section id="avis">
+        <div class="container">
+            <h2>Vos Avis</h2>
+            <form onsubmit="envoyerAvis(event)">
+                <textarea id="avis-text" rows="4" placeholder="Laissez votre avis ici..." required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+            <div id="avis-liste"></div>
+        </div>
+    </section>
+
+    <!-- Section Paiement -->
+    <section id="paiement">
+        <div class="container">
+            <h2>Payer avec Orange Money</h2>
+            <p>Veuillez cliquer ci-dessous pour effectuer un paiement via Orange Money :</p>
+            <button onclick="simulerPaiement()">Procéder au paiement</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Restaurant Gourmet - Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #ff6f61;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+h2 {
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e95d50;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+// Fonction pour envoyer un avis
+function envoyerAvis(event) {
+    event.preventDefault();
+    const avisText = document.getElementById("avis-text").value;
+    const avisListe = document.getElementById("avis-liste");
+    const avisElement = document.createElement("p");
+    avisElement.textContent = avisText;
+    avisListe.appendChild(avisElement);
+    document.getElementById("avis-text").value = ""; // Réinitialise le champ
+    alert("Merci pour votre avis !");
+}
+
+// Fonction pour simuler le paiement
+function simulerPaiement() {
+    alert("Redirection vers Orange Money... (fonctionnalité en cours d'intégration)");
+    // Remplace cette alerte par une vraie intégration d'API si nécessaire
+}
